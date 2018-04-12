@@ -4,8 +4,13 @@ require 'nokogiri'
 def cours_cryptomonnnaies
     page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
     cours_acutel = []
-    element_tab = doc.css("#currencies-all tbody tr")
-    for i in 0...element_tab.length do
+    puts "*********************************************************************"
+    puts "                       CHARGEMENT                                    "
+    puts "*********************************************************************"
+    sleep 2
+    puts "PATIENTEZ SVP"
+    element_tab = doc.css("#currencies-all tbody tr")[0..12]
+    for i in 0...11 do
         x = page.css("#currencies-all tbody tr")[i].text.split("\n").join(" ")[2..-1].split(" ")
         cours_actuel.push({
             :name => x[2],
@@ -19,14 +24,10 @@ def cours_cryptomonnnaies
             :percent_7_d =>x[10]
         })
     end
-    puts "*********************************************************************"
-    puts "                       CHARGEMENT                                    "
-    puts "*********************************************************************"
-    sleep 2
-    puts "PATIENTEZ SVP"
     cours_actuel
 end
 
+#Boucle infini qui se lance chaque une heure 
 while 0 != 1
     puts cours_cryptomonnnaies
     sleep 3600
