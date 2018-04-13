@@ -3,7 +3,7 @@ require 'nokogiri'
 
 def cours_cryptomonnnaies
     page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
-    cours_acutel = Hash.new(0)
+    cours_actuel = Hash.new(0)
     puts "*********************************************************************"
     puts "                       CHARGEMENT                                    "
     puts "*********************************************************************"
