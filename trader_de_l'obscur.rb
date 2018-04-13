@@ -9,7 +9,7 @@ def cours_cryptomonnnaies
     puts "*********************************************************************"
     sleep 2
     puts "PATIENTEZ SVP"
-    element_tab = doc.css("#currencies-all tbody tr")[0..12]
+    element_tab = page.css("#currencies-all tbody tr")[0..12]
     for i in 0...11 do
         x = page.css("#currencies-all tbody tr")[i].text.split("\n").join(" ")[2..-1].split(" ")
         cours_actuel.push({
